@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace يارب_صبرني.Models
+namespace FirstApiProject.Models
 {
     public class AppDbContext : DbContext
     {

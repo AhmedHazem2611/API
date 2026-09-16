@@ -3,17 +3,20 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using يارب_صبرني.Models;
+using FirstApiProject.Models;
 
 #nullable disable
 
-namespace يارب_صبرني.Migrations
+namespace FirstApiProject.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260916193004_init")]
+    partial class init
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -22,7 +25,7 @@ namespace يارب_صبرني.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("يارب_صبرني.Models.Classroom", b =>
+            modelBuilder.Entity("FirstApiProject.Models.Classroom", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -46,7 +49,7 @@ namespace يارب_صبرني.Migrations
                     b.ToTable("Classrooms");
                 });
 
-            modelBuilder.Entity("يارب_صبرني.Models.Department", b =>
+            modelBuilder.Entity("FirstApiProject.Models.Department", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -71,7 +74,7 @@ namespace يارب_صبرني.Migrations
                     b.ToTable("Departments");
                 });
 
-            modelBuilder.Entity("يارب_صبرني.Models.Enrollment", b =>
+            modelBuilder.Entity("FirstApiProject.Models.Enrollment", b =>
                 {
                     b.Property<int>("StudentId")
                         .HasColumnType("int");
@@ -96,7 +99,7 @@ namespace يارب_صبرني.Migrations
                     b.ToTable("Enrollments");
                 });
 
-            modelBuilder.Entity("يارب_صبرني.Models.Student", b =>
+            modelBuilder.Entity("FirstApiProject.Models.Student", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -125,7 +128,7 @@ namespace يارب_صبرني.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<int?>("PhoneNumber")
+                    b.Property<int>("PhoneNumber")
                         .HasMaxLength(20)
                         .HasColumnType("int");
 
@@ -142,7 +145,7 @@ namespace يارب_صبرني.Migrations
                     b.ToTable("Students");
                 });
 
-            modelBuilder.Entity("يارب_صبرني.Models.Subject", b =>
+            modelBuilder.Entity("FirstApiProject.Models.Subject", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -176,7 +179,7 @@ namespace يارب_صبرني.Migrations
                     b.ToTable("Subjects");
                 });
 
-            modelBuilder.Entity("يارب_صبرني.Models.Teacher", b =>
+            modelBuilder.Entity("FirstApiProject.Models.Teacher", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -220,15 +223,15 @@ namespace يارب_صبرني.Migrations
                     b.ToTable("Teachers");
                 });
 
-            modelBuilder.Entity("يارب_صبرني.Models.Enrollment", b =>
+            modelBuilder.Entity("FirstApiProject.Models.Enrollment", b =>
                 {
-                    b.HasOne("يارب_صبرني.Models.Student", "Student")
+                    b.HasOne("FirstApiProject.Models.Student", "Student")
                         .WithMany("Enrollments")
                         .HasForeignKey("StudentId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("يارب_صبرني.Models.Subject", "Subject")
+                    b.HasOne("FirstApiProject.Models.Subject", "Subject")
                         .WithMany("Enrollments")
                         .HasForeignKey("SubjectId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -239,9 +242,9 @@ namespace يارب_صبرني.Migrations
                     b.Navigation("Subject");
                 });
 
-            modelBuilder.Entity("يارب_صبرني.Models.Student", b =>
+            modelBuilder.Entity("FirstApiProject.Models.Student", b =>
                 {
-                    b.HasOne("يارب_صبرني.Models.Classroom", "Classroom")
+                    b.HasOne("FirstApiProject.Models.Classroom", "Classroom")
                         .WithMany("Students")
                         .HasForeignKey("ClassRoomId")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -250,9 +253,9 @@ namespace يارب_صبرني.Migrations
                     b.Navigation("Classroom");
                 });
 
-            modelBuilder.Entity("يارب_صبرني.Models.Subject", b =>
+            modelBuilder.Entity("FirstApiProject.Models.Subject", b =>
                 {
-                    b.HasOne("يارب_صبرني.Models.Teacher", "Teacher")
+                    b.HasOne("FirstApiProject.Models.Teacher", "Teacher")
                         .WithMany("Subjects")
                         .HasForeignKey("TeacherId")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -261,9 +264,9 @@ namespace يارب_صبرني.Migrations
                     b.Navigation("Teacher");
                 });
 
-            modelBuilder.Entity("يارب_صبرني.Models.Teacher", b =>
+            modelBuilder.Entity("FirstApiProject.Models.Teacher", b =>
                 {
-                    b.HasOne("يارب_صبرني.Models.Department", "Department")
+                    b.HasOne("FirstApiProject.Models.Department", "Department")
                         .WithMany("Teachers")
                         .HasForeignKey("DepartmentId")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -272,27 +275,27 @@ namespace يارب_صبرني.Migrations
                     b.Navigation("Department");
                 });
 
-            modelBuilder.Entity("يارب_صبرني.Models.Classroom", b =>
+            modelBuilder.Entity("FirstApiProject.Models.Classroom", b =>
                 {
                     b.Navigation("Students");
                 });
 
-            modelBuilder.Entity("يارب_صبرني.Models.Department", b =>
+            modelBuilder.Entity("FirstApiProject.Models.Department", b =>
                 {
                     b.Navigation("Teachers");
                 });
 
-            modelBuilder.Entity("يارب_صبرني.Models.Student", b =>
+            modelBuilder.Entity("FirstApiProject.Models.Student", b =>
                 {
                     b.Navigation("Enrollments");
                 });
 
-            modelBuilder.Entity("يارب_صبرني.Models.Subject", b =>
+            modelBuilder.Entity("FirstApiProject.Models.Subject", b =>
                 {
                     b.Navigation("Enrollments");
                 });
 
-            modelBuilder.Entity("يارب_صبرني.Models.Teacher", b =>
+            modelBuilder.Entity("FirstApiProject.Models.Teacher", b =>
                 {
                     b.Navigation("Subjects");
                 });

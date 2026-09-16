@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace يارب_صبرني.Models
+namespace FirstApiProject.Models
 {
     public class Department
     {

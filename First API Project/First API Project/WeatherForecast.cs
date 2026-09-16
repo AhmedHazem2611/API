@@ -1,4 +1,4 @@
-namespace يارب_صبرني
+namespace FirstApiProject
 {
     public class WeatherForecast
     {

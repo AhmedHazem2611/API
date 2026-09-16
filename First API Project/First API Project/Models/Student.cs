@@ -1,9 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace يارب_صبرني.Models
+namespace FirstApiProject.Models
 {
-    public class Teacher
+    public class Student
     {
         [Key]
         public int Id { get; set; }
@@ -14,20 +14,17 @@ namespace يارب_صبرني.Models
         [MaxLength(50)]
         public string LastName { get; set; }
         [Required]
-        [EmailAddress]
         [MaxLength(150)]
+        [EmailAddress]
         public string EmailAddress { get; set; }
         [MaxLength(20)]
         [Phone]
-        public string? PhoneNumber { get; set; }
+        public int? PhoneNumber { get; set; }
         [Required]
-        [Range(1, int.MaxValue)]
-        public decimal Salary { get; set; }
-
-        [ForeignKey("Department")]
-        public int DepartmentId { get; set; }
-        public Department Department { get; set; }
-        public List<Subject> Subjects { get; set; } = new List<Subject>();
-
+        public DateTime DateOfBirth {  get; set; }
+        [ForeignKey("ClassRoom")]
+        public int ClassRoomId { get; set; }
+        public Classroom Classroom { get; set; }
+        public List<Enrollment> Enrollments { get; set; } = new List<Enrollment>();
     }
 }

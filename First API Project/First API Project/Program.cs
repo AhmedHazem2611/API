@@ -1,5 +1,5 @@
 
-namespace يارب_صبرني
+namespace FirstApiProject
 {
     public class Program
     {

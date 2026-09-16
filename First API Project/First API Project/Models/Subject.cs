@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace يارب_صبرني.Models
+namespace FirstApiProject.Models
 {
     public class Subject
     {

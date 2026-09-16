@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace يارب_صبرني.Migrations
+namespace FirstApiProject.Migrations
 {
     /// <inheritdoc />
     public partial class _2 : Migration

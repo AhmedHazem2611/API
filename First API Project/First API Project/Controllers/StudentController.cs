@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using يارب_صبرني.Models;
+using FirstApiProject.Models;
 
-namespace يارب_صبرني.Controllers
+namespace FirstApiProject.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]

@@ -1,0 +1,19 @@
+﻿using System.ComponentModel.DataAnnotations;
+namespace يارب_صبرني.Models
+{
+    public class Classroom
+    {
+        [Key]
+        public int Id { get; set; }
+        [Required]
+        [MaxLength(50)]
+        public string Name { get; set; }
+        [Required]
+        [Range(1,12)]
+        public int GradeLevel { get; set; }
+        [Required]
+        [Range(1,100)]
+        public int Capacity { get; set; }
+        public List<Student> Students { get; set; } = new List<Student>();
+    }
+}
